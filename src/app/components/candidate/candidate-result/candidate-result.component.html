@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="display-4 title" *ngIf="profile">{{profile.firstName + ' ' + profile.lastName}} results</h1>
+  <table class="table table-hover ">
+    <thead class="thead-light">
+      <tr>
+        <th>Exercise name</th>
+        <th>Subject</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let result of exerciseResults" routerLink="/taskResults/{{result.id}}/{{profile.id}}" class="clickable">
+      <td>{{result.candidateExercise.name}}</td>
+      <td>{{result.candidateExercise.subject}}</td>
+      <td>{{result.score}}/{{result.candidateExercise.maximumScore}}</td>
+    </tr>
+    <tfoot>
+      <tr>
+        <td class="h4" colspan="3">Average score: {{averageScore}}</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <button routerLink="/candidates" class="btn btn-outline-secondary ">Back to candidates list</button>
+</div>

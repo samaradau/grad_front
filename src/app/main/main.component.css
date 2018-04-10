@@ -1,0 +1,14 @@
+.background_img {
+    height:93vh;
+    background-size: 100%;
+    border-radius: 0;
+    background-position: center;
+    background-size: cover;
+    background-image : url('/assets/brand/background.jpg')    
+}
+
+.custom-row {
+    padding-left: 11%;
+    padding-top: 10%; 
+    margin-right: 0;
+} 

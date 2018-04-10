@@ -1,0 +1,35 @@
+
+.clickable {
+  cursor: pointer;
+}
+
+td {
+  vertical-align: middle;
+}
+
+#emailSearch {
+  min-width: 40%;
+  width: auto;
+  float: left;
+}
+
+#itemsAmount {
+  min-width: 20%;
+  width: auto;
+  float: right;
+  margin-right: 10px;
+}
+
+#selectRole {
+  min-width: 25%;
+  width: auto;
+  float: right;
+}
+
+#pagination {
+  padding-bottom: 5%;
+}
+
+.btn {
+  margin: 1%;
+}

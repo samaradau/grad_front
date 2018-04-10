@@ -1,0 +1,18 @@
+<div class="container">
+  <h1 class="display-4 title">Exercise management <button style="float: right;" routerLink="/exerciseManagement/create" type="button" class="btn btn-success create_btn">Create</button></h1>
+  <table class="table table-hover my=4">
+    <tr>
+      <th><h4>№</h4></th>
+      <th><h4>Task name</h4></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let exercise of exercises; let i=index">
+      <td>{{i+1}}</td>
+      <td>{{exercise.item1}}</td>
+      <td style="float: right;">
+        <button routerLink="/exerciseManagement/edit/{{exercise.item2}}" class="btn btn-info" type="button">Edit</button>
+        <button (click)="deleteExercise(exercise)" class="btn btn-danger" type="button">Delete</button>
+      </td>      
+    </tr>
+  </table>
+</div>

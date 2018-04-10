@@ -1,0 +1,49 @@
+a, a:active, a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+.selected {
+  background-color: #bdd0bd !important;
+  color: white;
+}
+.card {
+  margin: 2%;
+  padding: 0;
+  min-width: 18rem;
+}
+
+.row {
+  padding-left: 6%;
+}
+.title {
+  margin-top: 2%;
+  text-align: center;
+}
+.timerSelected {
+  background-color: #f8d7da !important;
+  color: white;
+}
+
+.timer-svg {
+  float: right;
+}
+
+.about-timer, .about-hints {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.about-timer_text, .about-hints_text {
+  margin-left: 1%;
+  text-align: center;
+}
+
+.about-hints_svg {
+  margin-top: 15px;
+}
+
+.about-hints {
+  margin-top: 25px;
+}

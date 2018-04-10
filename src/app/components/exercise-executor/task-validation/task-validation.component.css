@@ -1,0 +1,17 @@
+textarea { 
+  height: 600px; 
+  overflow: auto; 
+  border: none;
+  scrollbar-base-color: #ff8c00; 
+  scrollbar-arrow-color: white; 
+} 
+
+.show-code{
+  background-color: white;
+  height: 600px;
+  overflow: scroll;  
+}
+
+.jumbotron {
+  margin-bottom: 0;
+}

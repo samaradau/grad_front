@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="display-4 title">Exercises</h1>
+  <div class="about-timer">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="30" height="30"><g fill="#cc1f3e"><path d="M30 0a1 1 0 0 0-1 1v13.292a1 1 0 1 0 2 0V2.018C45.979 2.546 58 14.896 58 30c0 15.439-12.561 28-28 28S2 45.439 2 30c0-7.46 2.9-14.479 8.166-19.764A.999.999 0 1 0 8.75 8.824C3.107 14.486 0 22.007 0 30c0 16.542 13.458 30 30 30s30-13.458 30-30S46.542 0 30 0z"/><path d="M28.555 33.532A3.555 3.555 0 0 0 31.437 35c.942 0 1.848-.372 2.519-1.044a3.56 3.56 0 0 0-.426-5.403L20.586 19.19a1 1 0 1 0-1.397 1.397l9.366 12.945zm3.8-3.36a1.565 1.565 0 0 1 .187 2.371 1.577 1.577 0 0 1-1.228.453 1.56 1.56 0 0 1-1.141-.637l-5.713-7.897 7.895 5.71z"/></g></svg>
+    <h4 class="lead about-timer_text"> - Exercises, marked with this sign are time-limited. A timer will start once the exercise has been opened. <br>So please, open the exercise only when you are ready to start working on it.</h4>
+  </div>
+  <div class="about-hints">
+    <svg class="about-hints_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 489.418 489.418" width="30" height="30"><g fill="#c71e3d"><path d="M244.709 389.496c18.736 0 34.332-14.355 35.91-33.026l24.359-290.927a60.493 60.493 0 0 0-15.756-46.011C277.783 7.09 261.629 0 244.709 0s-33.074 7.09-44.514 19.532a60.485 60.485 0 0 0-15.755 46.011l24.359 290.927c1.578 18.671 17.174 33.026 35.91 33.026zM244.709 410.908c-21.684 0-39.256 17.571-39.256 39.256 0 21.683 17.572 39.254 39.256 39.254s39.256-17.571 39.256-39.254c0-21.685-17.572-39.256-39.256-39.256z"/></g></svg>
+    <h4 class="lead about-hints_text"> Some of the exercises contain hints. <br>You can use them, but in this case, your score will decrease with an each hint used.</h4>
+  </div>
+  <div class="row">
+    <div *ngFor="let exercise of exercises" class="card text-black bg-light my-4 mx-4 col-3" [class.selected]="exercise.isCompleted===true" [class.timerSelected]="exercise.isTimeOut===true">      
+      <a [routerLink]="!exercise.isCompleted ? ['/exerciseList', exercise.id] : ['/taskResults', exercise.resultId]">
+        <div class="card-header">
+          <div>
+            <svg class="timer-svg" *ngIf="exercise.hasTimer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="30" height="30"><g fill="#cc1f3e"><path d="M30 0a1 1 0 0 0-1 1v13.292a1 1 0 1 0 2 0V2.018C45.979 2.546 58 14.896 58 30c0 15.439-12.561 28-28 28S2 45.439 2 30c0-7.46 2.9-14.479 8.166-19.764A.999.999 0 1 0 8.75 8.824C3.107 14.486 0 22.007 0 30c0 16.542 13.458 30 30 30s30-13.458 30-30S46.542 0 30 0z"/><path d="M28.555 33.532A3.555 3.555 0 0 0 31.437 35c.942 0 1.848-.372 2.519-1.044a3.56 3.56 0 0 0-.426-5.403L20.586 19.19a1 1 0 1 0-1.397 1.397l9.366 12.945zm3.8-3.36a1.565 1.565 0 0 1 .187 2.371 1.577 1.577 0 0 1-1.228.453 1.56 1.56 0 0 1-1.141-.637l-5.713-7.897 7.895 5.71z"/></g></svg>
+            <h4 class="lead exercise-name" *ngIf="exercise.candidateScore ===-1"><b>{{exercise.name}}</b> (not started)</h4>
+            <h4 class="lead exercise-name" *ngIf="exercise.candidateScore >= 0"><b>{{exercise.name}}</b></h4>
+          </div>
+        </div>
+        <div class="card-body">
+            <p class="lead" *ngIf="exercise.candidateScore >= 0">Subject: {{exercise.subject}}
+              <br> Score:  {{exercise.candidateScore}} / {{exercise.maximumScore}}
+              <br> Used hints: {{exercise.usedTipsNumber}}</p>
+            <p class="lead" *ngIf="exercise.candidateScore ===-1">Subject: {{exercise.subject}}
+              <br> Maximum score: {{exercise.maximumScore}}</p>
+        </div>
+      </a>
+    </div>
+  </div>

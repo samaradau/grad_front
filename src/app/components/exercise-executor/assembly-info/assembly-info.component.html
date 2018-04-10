@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 class="display-4 title">Upload a new assembly</h1>
+  <form enctype="multipart/form-data" method="post">
+    <div class="input-group">
+      <div class="custom-file">
+        <input type="file" (change)="onChange($event)" class="custom-file-input" id="inputGroupFile04">
+        <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+      </div>
+      <div class="input-group-append">
+        <input type="submit" value="Upload" (click)="postAssembly()" class="btn btn-success">
+      </div>
+    </div>
+  </form>
+  <table class="table table-hover my-4">
+    <tr class="thead">
+      <th>
+        <h4>Assembly name</h4>
+      </th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let info of assemblyInfo">
+      <td>
+        <a routerLink="/assembly/{{info.item2}}">
+          {{info.item1}}
+        </a>
+      </td>
+      <td>
+        <button (click)="deleteAssembly(info.item2)" style="float: right;" class="btn btn-danger" type="button">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>

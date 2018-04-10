@@ -1,0 +1,27 @@
+.register-notification {
+    width: 70%;
+    height: 60%;
+    overflow: auto;
+    margin: 150px;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.confirm-title {
+    padding-top: 8%; 
+}
+
+.confirm-text {
+    margin-left: 10%;
+}
+
+.secondary-green-btn {
+    color: #28A745;
+    border-color: #28A745;
+    
+}
+
+.secondary-green-btn:hover {
+    color: white;
+    background-color: #28A745;
+}

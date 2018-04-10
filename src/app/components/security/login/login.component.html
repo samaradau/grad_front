@@ -1,0 +1,38 @@
+<div class="container-fluid text-center background-component">
+  <div class="row mb-3 vcenter-component vcenter-display">
+    <h1 class="display-4 title">Sign in</h1>
+    <form #loginForm="ngForm">
+      <div [hidden]="!badLogIn" class="custom-alert alert-danger">
+        The user name or password is incorrect.
+      </div>
+      <div [hidden]="emailConfirmed" class="custom-alert alert-danger">
+        The user email is not confirmed.
+      </div>
+      <div [hidden]="isActive" class="custom-alert alert-danger">
+        The user account is not active (banned) in system.
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input class="form-control" type="email" id="email" name="email" [(ngModel)]="user.email" #email="ngModel" required placeholder="Enter email address" />
+        <div [hidden]="email.valid || (email.pristine && !loginForm.submitted)" class="custom-alert alert-danger">
+          Please, enter your E-mail!
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" #password="ngModel"
+               required placeholder="Enter password" />
+        <div [hidden]="password.valid || (password.pristine && !loginForm.submitted)" class="custom-alert alert-danger">
+          Please, enter your password!
+        </div>
+      </div>
+
+      <div class="form-group mt-2">
+        <button type="submit" class="btn btn-success form-control" (click)="login(loginForm.valid)">Sign in</button>
+        <a class="btn btn-link text-success form-control mt-2" routerLink="/restorePassword/email">Forgot password?</a>
+      </div>
+    </form>
+  </div>
+</div>

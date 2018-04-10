@@ -1,0 +1,13 @@
+<div *ngIf="assembly" class="container">
+  <h1 class="display-4 title">{{assembly.assemblyName}} info</h1>
+  <div class="assembly-info">
+    <div *ngFor="let info of assembly.testClassesElements">
+        <br>
+        <h4 class="lead"><b>Class: {{info.name}}</b></h4>
+      <div *ngFor="let method of info.methodsNames">
+          <h4 class="lead">Method: {{method}}</h4>
+      </div>
+    </div>
+  </div>
+  <button routerLink="/assembly" class="btn btn-outline-secondary my-4">Back to Assemblies</button>
+</div>

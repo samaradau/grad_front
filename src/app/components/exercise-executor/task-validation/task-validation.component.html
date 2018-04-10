@@ -1,0 +1,42 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container" *ngIf="exercise">
+    <app-timer *ngIf="exercise.timeSeconds && taskTime > 0" [totalSeconds]=taskTime (timerOutEvent)="onTimerOutEvent()"></app-timer>
+    <h2 *ngIf="taskTime <= 0" class="alert alert-danger time_alert">Time is out</h2>
+    <div class="exercise-info">
+      <h1 class="display-4">{{exercise.name}}</h1>
+      <p class="lead">{{exercise.subject}}
+        <br> {{exercise.description}}
+        <br><span>Used hints number: <b>{{exercise.usedTipsNumber}}/{{this.exercise.tips.length}}</b></span> 
+        <button style="float: right;" *ngIf="taskTime > 0" (click)="getTip(); updateTip(exercise.id)" [disabled]="isAllTipsUsed"
+            value="go" type="button" class="btn btn-primary">Use hint</button>
+      </p>
+    </div>
+    <div id='wrapper'>
+      <div *ngIf="exercise.usedTipsNumber!=0">
+        <div class="lead"><b>Hints:</b></div>
+        <div class="lead" *ngFor="let tip of candidateTips; let i=index">{{i+1}}. {{tip}}</div>
+      </div>
+    </div>
+    <p>{{exercise.code}}</p>
+    <div class="row my-4">
+      <textarea *ngIf="taskTime > 0" [hidden]="!showCode" class="form-control col-12" aria-label="With textarea" [(ngModel)]="exercise.codeTemplate"></textarea>
+      <div *ngIf="taskTime > 0" class="show-code col-12" [hidden]="showCode" (click)="onShowCode()">
+        <pre><code highlight [code]="exercise.codeTemplate"></code></pre>
+      </div>
+      <div *ngIf="taskTime <= 0" class="show-code col-12">
+          <pre><code highlight [code]="exercise.codeTemplate"></code></pre>
+        </div>
+    </div>
+
+    <div class="validate_buttons my-4">
+      <button *ngIf="taskTime > 0" (click)="validate(exercise.codeTemplate, exercise.id)" id="validateBtn" type="button" class="btn btn-success">Validate</button>
+      <button routerLink="/exerciseList" class="btn btn-outline-secondary">Return to Exercise List</button>
+    </div>
+    <div *ngIf="runResult.success"class="alert alert-success my-4" >
+      Your score is {{runResult.score}} points.
+    </div>
+    <div *ngIf="runResult.errorMessage" class="alert alert-danger my-4" role="alert">
+      Error message {{runResult.errorMessage}}
+    </div>
+  </div>
+</div>

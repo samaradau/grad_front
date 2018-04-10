@@ -1,0 +1,12 @@
+<div class="page-background">
+    <div class="confirm-text">
+    <div *ngIf="confirmSuccess && show">
+        <h1 class="display-4 confirm-title">Email has been confirmed!</h1>
+        <p class="lead">Now you can <a routerLink="/login" style="text-decoration: underline; color: #28a745;">sign in</a> to the system.</p>
+    </div>
+    <div *ngIf="!confirmSuccess && show">
+        <h1 class="display-4 confirm-title"> Email hasn't been confirmed ):</h1>
+        <p class="lead">An error occured on the server or the link is wrong.</p>
+        <a routerLink="/main" class="btn btn-outline-secondary secondary-green-btn">Back to the main page</a>
+    </div>
+</div>

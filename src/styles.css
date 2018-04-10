@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+.form-group {
+  float: left;
+  width: 350px;
+  clear: both;
+  text-align: left;
+}
+
+.background-component {
+  position: absolute;
+  min-height: 93vh;
+  background-color: #e9ecef;
+}
+
+.vcenter-component {
+  float: none;
+  margin-top: 13vh;
+}
+
+.custom-alert {
+    position: relative;
+    padding: .3rem 1.25rem;
+    margin-bottom: .2rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.title {
+    margin-top: 2%;
+    margin-bottom: 3%;
+  }
+
+.page-background {
+    min-height: 93vh;
+    background-color: #e9ecef;
+}

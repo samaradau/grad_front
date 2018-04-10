@@ -1,0 +1,33 @@
+.delete-btn{
+  float: right;
+  margin-right: 55%;
+  margin-top: 1%;
+  width: 200px;
+}
+
+a {
+text-decoration: none;
+color: black;
+}
+
+a:hover{
+color: #20c997;
+}
+
+span{
+font-size: x-large;
+}
+
+.upload-button{
+margin-top: 1%;
+margin-left: 17px;
+border-radius: 5px;
+}
+
+.btn{
+margin-left: 1%;
+}
+
+.component_title{
+margin-left: 5px;
+}

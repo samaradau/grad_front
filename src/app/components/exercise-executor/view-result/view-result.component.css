@@ -1,0 +1,13 @@
+.return_button {
+  margin-top: 2%;
+}
+
+.task-result {
+  background-color: white;
+  height: 600px;
+  overflow: auto;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+}

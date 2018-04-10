@@ -1,0 +1,23 @@
+.clickable {
+  cursor: pointer;
+}
+
+.btn {
+  margin: 1%;
+}
+
+#lastNameSearch {
+  min-width: 40%;
+  width: auto;
+  float: left;
+}
+
+#itemsAmount {
+  min-width: 20%;
+  width: auto;
+  float: right;
+}
+
+#pagination {
+  padding-bottom: 5%;
+}

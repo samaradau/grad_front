@@ -1,0 +1,32 @@
+.navbar-style {
+  height: 7vh;
+  z-index: 1;
+}
+
+.lavend-color {
+  color: lavender;
+}
+
+.mr-left {
+  margin-left: 10px;
+}
+
+.logo {
+  margin-left: 9%;
+}
+
+ul {
+  overflow: hidden;
+  zoom: 1;
+}
+
+li {
+  list-style: none;
+  float: left;
+  padding: 0 20px;
+  margin: 0 1px 0 -1px;
+}
+
+li:not(:first-child) {
+  border-left: 1px solid #666;
+}
