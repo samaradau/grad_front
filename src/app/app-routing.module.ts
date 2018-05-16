@@ -26,6 +26,10 @@ import { AccountInfoComponent } from './components/user-management/account-info/
 import { CandidateListComponent } from './components/user-management/candidate-list/candidate-list.component';
 import { CandidateResultComponent } from './components/candidate/candidate-result/candidate-result.component';
 import { LoginComponent } from './components/security/login/login.component';
+import { LectureEditorComponent } from './components/lecture-management/lecture-editor/lecture-editor.component';
+import { LectureListComponent } from './components/lecture-management/lecture-list/lecture-list.component';
+import { LectureViewerComponent } from './components/lecture-management/lecture-viewer/lecture-viewer.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -54,7 +58,12 @@ const routes: Routes = [
   { path: 'account/info', component: AccountInfoComponent },
   { path: 'candidates', component: CandidateListComponent },
   { path: 'exercises/results/:candidateId', component: CandidateResultComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'lectures/edit/:id', component: LectureEditorComponent },
+  { path: 'lectures', component: LectureListComponent },
+  { path: 'lectures/:id', component: LectureViewerComponent },
+  { path: 'lectures/new', component: LectureViewerComponent }  
+   
 ];
 
 @NgModule({

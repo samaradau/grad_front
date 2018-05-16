@@ -5,6 +5,26 @@ import { EqualValidator } from '../app/components/security/register/register-val
 import { PasswordEqualValidator } from '../app/components/security/restore-password/restore-password-recovery/password-recovery-validator.directive';
 import { HttpClient, HttpClientModule} from '@angular/common/http';
 
+import { InvitesSenderService } from './services/user-management/invites-sender.service';
+import { ExerciseListService } from './services/candidate/exercise-list.service';
+import { ExerciseManagementService } from './services/exercise-management/exercise-management.service';
+import { ExerciseExecutorService } from './services/exercise-executor/exercise-executor.service';
+import { AccountService } from './services/user-management/account.service';
+import { CandidateListService } from './services/candidate/candidate-list.service';
+import { ProfileService } from './services/user-management/profile.service';
+import { AssemblyInfoService } from './services/exercise-executor/assembly-info.service';
+import { StorageService } from './services/storage/storage.service';
+import { AuthService } from './services/authentication/auth.service';
+import { PagerService } from './services/pager.service';
+import { InvitesService } from './services/user-management/invites.service';
+import { AssemblyInfoViewComponent } from './components/exercise-executor/assembly-info-view/assembly-info-view.component';
+import { AccountInfoComponent } from './components/user-management/account-info/account-info.component';
+import { CandidateListComponent } from './components/user-management/candidate-list/candidate-list.component';
+import { TimerComponent } from './components/timer/timer.component';
+import { CandidateResultComponent } from './components/candidate/candidate-result/candidate-result.component';
+import { ExerciseResultService } from './services/candidate/exercise-result.service';
+import { HighlightModule } from 'ngx-highlightjs';
+
 import { AppComponent } from './app.component';
 import { TaskValidationComponent } from './components/exercise-executor/task-validation/task-validation.component';
 import { ExerciseListComponent } from './components/candidate/exercise-list/exercise-list.component';
@@ -27,26 +47,9 @@ import { ExerciseManagementComponent } from './components/exercise-management/ex
 import { CreateExerciseComponent } from './components/exercise-management/create-exercise/create-exercise.component';
 import { DeniedComponent } from './components/notifications/denied/denied.component';
 import { InvitesNotificationComponent } from './components/user-management/invites-notification/invites-notification.component';
-
-import { InvitesSenderService } from './services/user-management/invites-sender.service';
-import { ExerciseListService } from './services/candidate/exercise-list.service';
-import { ExerciseManagementService } from './services/exercise-management/exercise-management.service';
-import { ExerciseExecutorService } from './services/exercise-executor/exercise-executor.service';
-import { AccountService } from './services/user-management/account.service';
-import { CandidateListService } from './services/candidate/candidate-list.service';
-import { ProfileService } from './services/user-management/profile.service';
-import { AssemblyInfoService } from './services/exercise-executor/assembly-info.service';
-import { StorageService } from './services/storage/storage.service';
-import { AuthService } from './services/authentication/auth.service';
-import { PagerService } from './services/pager.service';
-import { InvitesService } from './services/user-management/invites.service';
-import { AssemblyInfoViewComponent } from './components/exercise-executor/assembly-info-view/assembly-info-view.component';
-import { AccountInfoComponent } from './components/user-management/account-info/account-info.component';
-import { CandidateListComponent } from './components/user-management/candidate-list/candidate-list.component';
-import { TimerComponent } from './components/timer/timer.component';
-import { CandidateResultComponent } from './components/candidate/candidate-result/candidate-result.component';
-import { ExerciseResultService } from './services/candidate/exercise-result.service';
-import { HighlightModule } from 'ngx-highlightjs';
+import { LectureViewerComponent } from './components/lecture-management/lecture-viewer/lecture-viewer.component';
+import { LectureListComponent } from './components/lecture-management/lecture-list/lecture-list.component';
+import { LectureEditorComponent } from './components/lecture-management/lecture-editor/lecture-editor.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +81,9 @@ import { HighlightModule } from 'ngx-highlightjs';
     CandidateListComponent,
     TimerComponent,
     CandidateResultComponent,
+    LectureViewerComponent,
+    LectureListComponent,
+    LectureEditorComponent,
   ],
   imports: [
       BrowserModule,
