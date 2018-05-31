@@ -1,17 +1,17 @@
 <div class="container">
-  <h1 class="display-4 title">Exercise manager</h1>
+  <h1 class="display-4 title">Новое задание</h1>
   <div *ngIf="exercise">
     <div class="row">
       <div class="input-group mb-3 col-8">
         <div class="input-group-prepend">
-          <span class="input-group-text">Task name</span>
+          <span class="input-group-text">Название</span>
         </div>
         <input [(ngModel)]="exercise.name" id="name" name="name" #name="ngModel" type="text" class="form-control" aria-describedby="basic-addon1"
           required>
       </div>
       <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger col-auto">
         <div *ngIf="name.errors.required">
-          Name is required.
+          Поле обязательно для заполнения
         </div>
       </div>
     </div>
@@ -19,14 +19,14 @@
     <div class="row">
       <div class="input-group mb-3 col-8">
         <div class="input-group-prepend">
-          <span class="input-group-text">Subject</span>
+          <span class="input-group-text">Раздел</span>
         </div>
         <input [(ngModel)]="exercise.subject" id="subject" name="subject" #subject="ngModel" type="text" class="form-control" aria-describedby="basic-addon1"
           required>
       </div>
       <div *ngIf="subject.invalid && (subject.dirty || subject.touched)" class="alert alert-danger col-auto">
         <div *ngIf="subject.errors.required">
-          Subject is required.
+          Поле обязательно для заполнения
         </div>
       </div>
     </div>
@@ -34,14 +34,14 @@
     <div class="row">
       <div class="input-group mb-3 col-8">
         <div class="input-group-prepend">
-          <span class="input-group-text">Description</span>
+          <span class="input-group-text">Описание</span>
         </div>
         <textarea [(ngModel)]="exercise.description" id="description" name="description" #description="ngModel" class="form-control"
           aria-label="With textarea" required></textarea>
       </div>
       <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger col-auto">
         <div *ngIf="description.errors.required">
-          Description is required.
+          Поле обязательно для заполнения
         </div>
       </div>
     </div>
@@ -49,8 +49,8 @@
     <div class="row">
       <div class="input-group mb-3 col-8">
         <div class="input-group-prepend">
-          <span class="input-group-text">Hints
-            <br>(Each hint starts from a new line)</span>
+          <span class="input-group-text">Подсказки
+            <br>(каждая с новой строки)</span>
         </div>
         <textarea [(ngModel)]="exercise.tips" id="tips" name="tips" #tips="ngModel" class="form-control" aria-describedby="basic-addon1"></textarea>
       </div>
@@ -58,34 +58,34 @@
     <div class="row">
       <div class="input-group mb-3 form-group col-8">
         <div class="input-group-prepend">
-          <span class="input-group-text">Maximum score</span>
+          <span class="input-group-text">Максимальный бал</span>
         </div>
         <input type="number" [(ngModel)]="exercise.maximumScore" id="maximumScore" name="maximumScore" #maximumScore="ngModel" class="form-control"
           aria-describedby="basic-addon1" required min="0">
       </div>
       <div *ngIf="maximumScore.invalid && (maximumScore.dirty || maximumScore.touched)" class="alert alert-danger col-auto">
         <div *ngIf="maximumScore.errors.required">
-          MaximumScore is required.
+          Поле обязательно для заполнения
         </div>
       </div>
     </div>
 
     <div class="form-check mb-3">
       <input type="checkbox" id="enableTime" name="enableTime" [(ngModel)]="enableTime" class="form-check-input" aria-describedby="basic-addon1">
-      <label class="form-check-label" for="enableTime">Set timer</label>
+      <label class="form-check-label" for="enableTime">Задать время</label>
     </div>
 
     <div *ngIf="enableTime" class="row">
       <div class="input-group mb-3 form-group col-8">
         <div class="input-group-prepend">
-          <span class="input-group-text">Task time</span>
+          <span class="input-group-text">Время выполнения (секунды)</span>
         </div>
         <input type="number" [(ngModel)]="exercise.timeSeconds" id="timeSeconds" name="timeSeconds" #timeSeconds="ngModel" class="form-control"
           aria-describedby="basic-addon1" required min="5">
       </div>
       <div *ngIf="timeSeconds.invalid && (timeSeconds.dirty || timeSeconds.touched)" class="alert alert-danger col-auto">
         <div *ngIf="timeSeconds.errors.required">
-          Time is required.
+          Поле обязательно для заполнения
         </div>
       </div>
     </div>
@@ -93,14 +93,14 @@
     <div class="row">
       <div class="input-group mb-3 col-8">
         <div class="input-group-prepend">
-          <span class="input-group-text">Code template</span>
+          <span class="input-group-text">Шаблон кода</span>
         </div>
         <textarea [(ngModel)]="exercise.codeTemplate" id="codeTemplate" name="codeTemplate" #codeTemplate="ngModel" class="form-control"
           aria-label="With textarea" required></textarea>
       </div>
       <div *ngIf="codeTemplate.invalid && (codeTemplate.dirty || codeTemplate.touched)" class="alert alert-danger col-auto">
         <div *ngIf="codeTemplate.errors.required">
-          CodeTemplate is required.
+          Поле обязательно для заполнения
         </div>
       </div>
     </div>
@@ -108,7 +108,7 @@
     <div class="row">
       <div class="input-group mb-3 col-8">
         <div class="input-group-prepend">
-          <label class="input-group-text">Test assembly name</label>
+          <label class="input-group-text">Тестовая сборка</label>
         </div>
         <select [(ngModel)]="exercise.assemblyName" #assemblyName class="custom-select" (change)="onSelectAssemblyName($event)">
           <option disabled selected hidden [value]="exercise.assemblyName">{{exercise.assemblyName}}</option>
@@ -120,7 +120,7 @@
     <div class="row">
       <div class="input-group mb-3 col-8">
         <div class="input-group-prepend">
-          <label class="input-group-text">Test class name</label>
+          <label class="input-group-text">Тестовый класс</label>
         </div>
         <select [(ngModel)]="exercise.testClassName" [disabled]="isClassNameDisabled" #testClassName class="custom-select" (change)="onSelectClassName($event)">
           <option disabled selected hidden [value]="exercise.testClassName">{{exercise.testClassName}}</option>
@@ -132,7 +132,7 @@
     <div class="row">
       <div class="input-group mb-3 col-8">
         <div class="input-group-prepend">
-          <label class="input-group-text">Test method name</label>
+          <label class="input-group-text">Тестовый метод</label>
         </div>
         <select [(ngModel)]="exercise.testMethodName" [disabled]="isMethodNameDisabled" #testMethodName class="custom-select">
           <option disabled selected hidden [value]="exercise.testMethodName">{{exercise.testMethodName}}</option>
@@ -141,9 +141,10 @@
       </div>
     </div>
     <div>
-      <button *ngIf="this.currentPath=='/exerciseManagement/create'" [disabled]="isButtonDisabled" (click)="addNewExercise(codeTemplate.value, assemblyName.value, testClassName.value, testMethodName.value, tips.value, id=1, name.value, subject.value, description.value, maximumScore.value)" type="button" class="btn btn-success mb-4">Create</button> 
-      <button *ngIf="this.currentPath=='/exerciseManagement/edit/'+this.id" (click)="save(tips.value)" type="button" class="btn btn-success mb-4">Save</button>
-      <button routerLink="/exerciseManagement" class="btn btn-outline-secondary mb-4">Back to exercise list</button>
+      <button *ngIf="this.currentPath=='/exerciseManagement/create'" [disabled]="isButtonDisabled" (click)="addNewExercise(codeTemplate.value, assemblyName.value, testClassName.value, testMethodName.value, tips.value, id=1, name.value, subject.value, description.value, maximumScore.value)"
+        type="button" class="btn btn-success mb-4">Сохранить</button>
+      <button *ngIf="this.currentPath=='/exerciseManagement/edit/'+this.id" (click)="save(tips.value)" type="button" class="btn btn-success mb-4">Сохранить</button>
+      <button routerLink="/exerciseManagement" class="btn btn-outline-secondary mb-4">Вернутся к списку заданий</button>
     </div>
   </div>
 </div>

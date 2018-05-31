@@ -29,7 +29,7 @@ export class AssemblyInfoComponent implements OnInit {
   }
 
   deleteAssembly(id: number): void {
-    if (confirm('Are you sure?')) {
+    if (confirm('Вы уверены что хотите удалить эту сборку?')) {
     this.assemblyInfo = this.assemblyInfo.filter(ai => ai.item2 !== id);
     this.asseblyInfoService.delete(id).subscribe();
     }
@@ -47,15 +47,16 @@ export class AssemblyInfoComponent implements OnInit {
             this.assemblyInfo.push(assembly);
           },
           err => {
-            alert('Assembly already exists');
+            alert('Сборка уже существует');
           });
       } else {
-        alert('Assembly with such name already exists');
+        alert('Сбока с таким именем уже существует.');
       }
     }
   }
 
   onChange(event) {
+    let a = <HTMLLabelElement> document.getElementById("fileLabel");
     const files: FileList = event.target.files;
     const type = files[0].name.split('.');
     if (type[type.length - 1] !== 'dll') {
@@ -63,6 +64,7 @@ export class AssemblyInfoComponent implements OnInit {
       event.target.value = null;
     } else {
        this.file = files[0];
+       a.innerHTML = this.file.name;
      }
   }
 }

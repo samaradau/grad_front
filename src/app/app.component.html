@@ -2,29 +2,29 @@
   <div class="logo">
     <a class="navbar-brand" routerLink="/main">
       <img src="../assets/brand/logo_white-blue.svg" class="d-inline-block align-center" alt="">
-      <span class="mr-left">LabTester</span>
+      <span class="mr-left">Learn System</span>
     </a>
   </div>
   <div class="collapse navbar-collapse navbar-style" id="navbarNavDropdown">
     <ul class="navbar-nav mr-auto"></ul>
     <ul *ngIf="authService.isLoggedIn()" class="navbar-nav mr-auto">
       <li *ngIf="authService.currentUser.roles.includes('candidate')" class="nav-item">
-        <a class="nav-link" routerLink="/exerciseList">Exercise list</a>
+        <a class="nav-link" routerLink="/exerciseList">Задания</a>
       </li>
       <li *ngIf="authService.currentUser.roles.includes('admin')" class="nav-item">
-        <a class="nav-link" routerLink="/invites/send">Send invite</a>
+        <a class="nav-link" routerLink="/invites/send">Приглашения</a>
       </li>
       <li *ngIf="authService.currentUser.roles.includes('coach')" class="nav-item">
-        <a class="nav-link" routerLink="/assembly">Assembly management</a>
+        <a class="nav-link" routerLink="/assembly">Сборки</a>
       </li>
       <li *ngIf="authService.currentUser.roles.includes('admin')" class="nav-item">
-        <a class="nav-link" routerLink="/accounts">User accounts</a>
-      </li>
-      <li *ngIf="authService.currentUser.roles.includes('manager')" class="nav-item">
-        <a class="nav-link" routerLink="/candidates">Candidates list</a>
+        <a class="nav-link" routerLink="/accounts">Профили</a>
       </li>
       <li *ngIf="authService.currentUser.roles.includes('coach')" class="nav-item">
-        <a class="nav-link" routerLink="/exerciseManagement">Exercise management</a>
+        <a class="nav-link" routerLink="/candidates">Успеваемость</a>
+      </li>
+      <li *ngIf="authService.currentUser.roles.includes('coach')" class="nav-item">
+        <a class="nav-link" routerLink="/exerciseManagement">Задания</a>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -32,10 +32,10 @@
         <a [routerLink]="['/account/info']" class="lavend-color">{{ authService.currentUser.userSurname + ' ' + authService.currentUser.userName }}</a>
       </li>
       <li *ngIf="!authService.isLoggedIn()">
-        <a [routerLink]="['/login']" class="lavend-color">Sign in </a>
+        <a [routerLink]="['/login']" class="lavend-color">Войти</a>
       </li>
       <li *ngIf="!authService.isLoggedIn()">
-        <a [routerLink]="['/register']" class="lavend-color"> Sign up</a>
+        <a [routerLink]="['/register']" class="lavend-color">Зарегистрироваться</a>
       </li>
 
       <li *ngIf="authService.isLoggedIn()">

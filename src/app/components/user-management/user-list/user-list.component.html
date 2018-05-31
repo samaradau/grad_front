@@ -1,21 +1,17 @@
-<h1 class="display-4 title text-center">Accounts</h1>
+<h1 class="display-4 title text-center">Профили</h1>
 <div class="container">
 
   <div id="emailSearch" class="input-group mb-3">
     <div class="input-group-prepend">
-      <label class="input-group-text">Search by email:</label>
+      <label class="input-group-text">Искать по email:</label>
     </div>
-    <input class="form-control"
-            placeholder="Enter email"
-            type="text"
-            id="email"
-            name="email"
-            (input)="startSearch($event.target.value)" />
+    <input class="form-control" placeholder="Введите часть email" type="text" id="email" name="email" (input)="startSearch($event.target.value)"
+    />
   </div>
 
   <div id="selectRole" class="input-group mb-3">
     <div class="input-group-prepend">
-      <label class="input-group-text">Filter by role</label>
+      <label class="input-group-text">Фильтр по роли</label>
     </div>
     <select [ngModel]="selectedRole" class="custom-select" (ngModelChange)="onChange($event)">
       <option [value]="option" *ngFor="let option of options">{{ option }}</option>
@@ -24,7 +20,7 @@
 
   <div id="itemsAmount" class="input-group mb-3">
     <div class="input-group-prepend">
-      <label class="input-group-text">Items on page</label>
+      <label class="input-group-text">Элементов на странице</label>
     </div>
     <select #amount class="custom-select" (change)="onSelectAmount($event)">
       <option>15</option>
@@ -41,9 +37,9 @@
       <thead class="thead-light">
         <tr>
           <th class="clickable" (click)="setOrder('email')">Email</th>
-          <th>Roles</th>
-          <th class="clickable" (click)="setOrder('isActive')">Is active in system</th>
-          <th class="clickable" (click)="setOrder('isEmailConfirmed')">Is email confirmed</th>
+          <th>Роли</th>
+          <th class="clickable" (click)="setOrder('isActive')">Активен в системе</th>
+          <th class="clickable" (click)="setOrder('isEmailConfirmed')">Подтвержден email</th>
         </tr>
       </thead>
       <tbody>
@@ -53,13 +49,13 @@
           <td>
             <button type="button" [ngClass]="{ 'btn-danger' : !account.isActive, 'btn-success' : account.isActive,
              'disabled' : isAdmin(i) || isChanging }" class="btn" (click)="!isAdmin(i) && !isChanging && changeActive(i)">
-              {{account.isActive ? "Active" : "Inactive"}}
+              {{account.isActive ? "Активен" : "Неактивен"}}
             </button>
           </td>
           <td>
             <div [ngClass]="{ 'btn btn-danger' : !account.isEmailConfirmed, 'label-success' : account.isEmailConfirmed,
-             'disabled' : isChanging }"  (click)="!isChanging && !account.isEmailConfirmed && confirmEmailByAdmin(i)">
-              {{account.isEmailConfirmed ? "Confirmed" : "Confirm email"}}
+             'disabled' : isChanging }" (click)="!isChanging && !account.isEmailConfirmed && confirmEmailByAdmin(i)">
+              {{account.isEmailConfirmed ? "Подтвержден" : "Подтвердить"}}
             </div>
           </td>
         </tr>
@@ -69,25 +65,21 @@
 
   <div id="pagination" *ngIf="pager.pages && pager.pages.length" class="text-center">
     <div class="btn-group">
-      <button type="button" [ngClass]="{disabled:pager.currentPage === 1}" class="btn btn-secondary"
-        (click)="!(pager.currentPage === 1) && setPage(1)">
-        First
+      <button type="button" [ngClass]="{disabled:pager.currentPage === 1}" class="btn btn-secondary" (click)="!(pager.currentPage === 1) && setPage(1)">
+        Первая
       </button>
-      <button type="button" [ngClass]="{disabled:pager.currentPage === 1}" class="btn btn-secondary"
-        (click)="!(pager.currentPage === 1) && setPage(pager.currentPage - 1)">
-        Previous
+      <button type="button" [ngClass]="{disabled:pager.currentPage === 1}" class="btn btn-secondary" (click)="!(pager.currentPage === 1) && setPage(pager.currentPage - 1)">
+        Предыдущая
       </button>
       <button *ngFor="let page of pager.pages" type="button" [ngClass]="{active:pager.currentPage === page}" class="btn btn-secondary"
         (click)="setPage(page)">
         {{page}}
       </button>
-      <button type="button" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="btn btn-secondary"
-        (click)="!(pager.currentPage === pager.totalPages) && setPage(pager.currentPage + 1)">
-        Next
+      <button type="button" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="btn btn-secondary" (click)="!(pager.currentPage === pager.totalPages) && setPage(pager.currentPage + 1)">
+        Слудующая
       </button>
-      <button type="button" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="btn btn-secondary"
-        (click)="!(pager.currentPage === pager.totalPages) && setPage(pager.totalPages)">
-        Last
+      <button type="button" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="btn btn-secondary" (click)="!(pager.currentPage === pager.totalPages) && setPage(pager.totalPages)">
+        Последняя
       </button>
     </div>
   </div>

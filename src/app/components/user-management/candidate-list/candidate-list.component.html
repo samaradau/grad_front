@@ -1,11 +1,11 @@
-<h1 class="display-4 title text-center">Candidates results</h1>
+<h1 class="display-4 title text-center">Успеваемость</h1>
 <div class="container">
   <div id="lastNameSearch" class="input-group mb-3">
       <div class="input-group-prepend">
-        <label class="input-group-text">Search by lastname:</label>
+        <label class="input-group-text">Искать по фамилии:</label>
       </div>
       <input class="form-control"
-              placeholder="Enter lastname"
+              placeholder="Иванов"
               type="text"
               id="lastName"
               name="lastName"
@@ -13,7 +13,7 @@
   </div>
   <div id="itemsAmount" class="input-group mb-3">
     <div class="input-group-prepend">
-      <label class="input-group-text">Items on page</label>
+      <label class="input-group-text">Элементов на странице</label>
     </div>
     <select #amount class="custom-select" (change)="onSelectAmount($event)">
       <option>15</option>
@@ -25,12 +25,12 @@
     </select>
   </div>
   <div class="candidates">
-    <table class="table table-hover">
+    <table class="table table-hove text-center">
       <thead class="thead-light">
         <tr>
-          <th class="clickable" (click)="setOrder('firstName')">First name</th>
-          <th class="clickable" (click)="setOrder('lastName')">Last name</th>
-          <th class="clickable" (click)="setOrder('score')">Progress</th>
+          <th class="clickable" (click)="setOrder('firstName')">Имя</th>
+          <th class="clickable" (click)="setOrder('lastName')">Фамилия</th>
+          <th class="clickable" (click)="setOrder('score')">Прогресс</th>
         </tr>
       </thead>
       <tbody>
@@ -47,11 +47,11 @@
     <div class="btn-group">
       <button type="button" [ngClass]="{disabled:pager.currentPage === 1}" class="btn btn-secondary"
         (click)="!(pager.currentPage === 1) && setPage(1)">
-        First
+        Первая
       </button>
       <button type="button" [ngClass]="{disabled:pager.currentPage === 1}" class="btn btn-secondary"
         (click)="!(pager.currentPage === 1) && setPage(pager.currentPage - 1)">
-        Previous
+        Предыдущая
       </button>
       <button *ngFor="let page of pager.pages" type="button" [ngClass]="{active:pager.currentPage === page}" class="btn btn-secondary"
         (click)="setPage(page)">
@@ -59,11 +59,11 @@
       </button>
       <button type="button" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="btn btn-secondary"
         (click)="!(pager.currentPage === pager.totalPages) && setPage(pager.currentPage + 1)">
-        Next
+        Слудующая
       </button>
       <button type="button" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="btn btn-secondary"
         (click)="!(pager.currentPage === pager.totalPages) && setPage(pager.totalPages)">
-        Last
+        Последняя
       </button>
     </div>
   </div>

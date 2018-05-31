@@ -1,59 +1,50 @@
 <div class="container">
-  <h1 class="display-4 title">Send an invite</h1>
+  <h1 class="display-4 title">Приглашение</h1>
   <div class="row">
     <div class="col-auto">
       <form>
         <div class="form-group">
-          <label for="email">E-mail: </label>
+          <label for="email">Email: </label>
           <div class="dropdown">
-            <input class="dropdown-toggle form-control"
-                   email
-                   [(ngModel)]="inviteToSend.email"
-                   #email="ngModel"
-                   placeholder="Enter e-mail"
-                   type="email"
-                   id="email"
-                   name="email"
-                   data-toggle="dropdown"
-                   aria-haspopup="true"
-                   aria-expanded="false"
-                   (input)="startSearch($event.target.value)" />
+            <input class="dropdown-toggle form-control" email [(ngModel)]="inviteToSend.email" #email="ngModel" placeholder="ivan_ivanov@test.com"
+              type="email" id="email" name="email" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (input)="startSearch($event.target.value)"
+            />
             <div id="results" class="dropdown-menu" aria-labelledby="email" [hidden]=" !results || results.length == 0 ">
-              <button id="invite" *ngFor="let invite of results" type="button" class="dropdown-item"
-                      (click)="setInviteForResend(invite)">
-                E-mail: <strong>{{invite.email}}</strong>
-                <br />
-                Role: <strong>{{invite.roleName}}</strong>
+              <button id="invite" *ngFor="let invite of results" type="button" class="dropdown-item" (click)="setInviteForResend(invite)">
+                E-mail:
+                <strong>{{invite.email}}</strong>
+                <br /> Роль:
+                <strong>{{invite.roleName}}</strong>
               </button>
             </div>
           </div>
           <div *ngIf="email.invalid && email.value" class="alert alert-danger">
             <div *ngIf="email.errors.email">
-              E-mail is not valid.
+              E-mail неверный
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="role">Role: </label>
+          <label for="role">Роль: </label>
           <select class="custom-select" name="roleName" [(ngModel)]="inviteToSend.roleName" id="role" required>
-            <option value="coach" selected>Coach</option>
-            <option value="manager">Manager</option>
+            <option value="coach" selected>Преподаватель</option>
+            <option value="manager">Администратор</option>
           </select>
         </div>
       </form>
       <button title="Send invite" id="sendButton" [disabled]="email.invalid" class="btn btn-success" (click)="sendInvite()">
-        Send invite
+        Пригласить
       </button>
       <div class="row my-2">
         <div class="col">
           <div id="fail" class="alert alert-danger sendingAlert" role="alert">
-            Invite sending failed
+            Отправка приглашения неуспешна
           </div>
           <div id="success" class="alert alert-success sendingAlert" role="alert">
-            Invite sent
+            Приглашение отправлено
           </div>
           <div id="conflict" class="alert alert-warning sendingAlert" role="alert">
-            The user already has this role
+            Пользователь уже в этой роли
           </div>
         </div>
       </div>

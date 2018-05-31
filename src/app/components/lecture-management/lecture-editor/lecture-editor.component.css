@@ -1,0 +1,12 @@
+#code {
+    font-family: Consolas, monaco, monospace;
+    width: 100%;
+    height: 300px;
+}
+
+.content {
+    border: rgb(158, 158, 158) 1px solid;
+    height: 80vh;
+    overflow: scroll;
+    width: 40vw;
+}

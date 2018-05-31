@@ -1,52 +1,56 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-lg-8">
+    <div class="col-6">
       <h1>Создание лекции</h1>
       <div class="form-group">
-        <label for="lectionName">Название лекции</label>
-        <input type="text" class="form-control" id="lectionName" placeholder="О программировании..">
+        <label for="name">Название</label>
+        <input type="text" class="form-control" id="name">
       </div>
       <div class="form-group">
-        <label for="section">Раздел</label>
-        <select class="form-control" id="section">
+        <label for="section">Подраздел</label>
+        <select class="form-control" name="section" id="section">
           <option value=".NET">.NET</option>
-          <option value=".Java">Java</option>
+          <option value="Java">Java</option>
           <option value="WEB">WEB</option>
         </select>
       </div>
       <div class="form-group">
-        <label for="subsection">Подраздел</label>
-        <select class="form-control" id="subsection">
-          <option value=".NET">.NET</option>
-          <option value=".Java">.NET</option>
-          <option value="WEB">.NET</option>
+        <label for="section">Подраздел</label>
+        <select class="form-control" name="section" id="section">
+          <option value="basics">Основы синтаксиса</option>
+          <option value="first">Первое приложение</option>
+          <option value="addings">Дополнительно</option>
         </select>
+        <br>
+        <input type="button" class="btn btn-success mt-2" value="Опубликовать">
       </div>
-      <div class="form-group">
+      <div class="pl-2">
         <label class="" for="code">Разметка страницы</label>
         <br>
-        <input onclick="inputHTML('<h1>Title1</h1>')" type="button" class="btn btn-secondary mb-3" value="Заголовок 1">
-        <input onclick="inputHTML('<h2>Title2</h2>')" type="button" class="btn btn-secondary mb-3" value="Заголовок 2">
-        <input onclick="inputHTML('<h3>Title3</h3>')" type="button" class="btn btn-secondary mb-3" value="Заголовок 3">
-        <input onclick="inputHTML('<h4>Title4</h4>')" type="button" class="btn btn-secondary mb-3" value="Заголовок 4">
-        <input onclick="inputHTML('<p>Some text</p>')" type="button" class="btn btn-secondary mb-3" value="Абзац">
-        <input onclick="inputHTML('<a href=&quot;link&quot;>Link text</a>')" type="button" class="btn btn-secondary mb-3" value="Ссылка">
-        <input onclick="inputHTML('<img src=&quot;link to image&quot;>')" type="button" class="btn btn-secondary mb-3" value="Изображение"
+        <input (click)="inputHTML('<h1>Title1</h1>')" type="button" class="btn btn-secondary mb-3" value="Заголовок 1">
+        <input (click)="inputHTML('<h2>Title2</h2>')" type="button" class="btn btn-secondary mb-3" value="Заголовок 2">
+        <input (click)="inputHTML('<h3>Title3</h3>')" type="button" class="btn btn-secondary mb-3" value="Заголовок 3">
+        <input (click)="inputHTML('<h4>Title4</h4>')" type="button" class="btn btn-secondary mb-3" value="Заголовок 4">
+        <input (click)="inputHTML('<p>Some text</p>')" type="button" class="btn btn-secondary mb-3" value="Абзац">
+        <input (click)="inputHTML('<a href=&quot;link&quot;>Link text</a>')" type="button" class="btn btn-secondary mb-3" value="Ссылка">
+        <input (click)="inputHTML('<img src=&quot;link to image&quot;>')" type="button" class="btn btn-secondary mb-3" value="Изображение"
           id="img">
-        <input onclick="inputHTML('<div ')" type="button" class="btn btn-secondary mb-3" value="Код" id="listing">
-        <input onclick="inputHTML('<ol>\n\t<li>Item1</li>\n</ol>')" type="button" class="btn btn-secondary mb-3" value="Нумерованный список">
-        <input onclick="inputHTML('<ul>\n\t<li>Item1</li>\n</ul>')" type="button" class="btn btn-secondary mb-3" value="Ненумерованный список">
-        <input onclick="inputHTML('<br>')" type="button" class="btn btn-secondary mb-3" value="Перенос строки">
-
-
+        <input (click)="inputHTML('<div></div>')" type="button" class="btn btn-secondary mb-3" value="Код" id="listing">
+        <input (click)="inputHTML('<ol>\n\t<li>Item1</li>\n</ol>')" type="button" class="btn btn-secondary mb-3" value="Нумерованный список">
+        <input (click)="inputHTML('<ul>\n\t<li>Item1</li>\n</ul>')" type="button" class="btn btn-secondary mb-3" value="Ненумерованный список">
+        <input (click)="inputHTML('<br>')" type="button" class="btn btn-secondary mb-3" value="Перенос строки">
+        <br>
         <textarea id="code" placeholder="<html>.."></textarea>
       </div>
-      <input type="button" class="btn btn-success mt-2" value="Опубликовать">
+    </div>
+    <div class="col-6">
 
       <div class="form-group">
+
         <label for="content">Предварительный просмотр</label>
         <div class="content" id="content"></div>
       </div>
 
     </div>
   </div>
+</div>
